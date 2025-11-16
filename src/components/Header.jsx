@@ -2,9 +2,10 @@ import Image from "next/image";
 import Logo from "/public/assets/logo.svg"
 import Link from "next/link";
 import {useState} from "react";
-import {gnbMenu, subMenu} from "@/data/gnbMenu";
+import {headerGnb, subMenu} from "@/data/headerGnb";
 import {useLanguage} from "@/hooks/useLanguage";
 import {useRouter} from "next/router";
+import LanguageSelector from "@/components/LanguageSelector";
 
 
 export default function Header() {
@@ -20,11 +21,6 @@ export default function Header() {
     const router = useRouter();
     const lang = useLanguage();
 
-    const handlerLangChange = (e) => {
-        if (showGnbMenu) setShowGnbMenu(false);
-        const selectedLang = e.target.value;
-        router.push(`/?lang=${selectedLang}`);
-    }
     const handlerLinkClick = () => {
         handlerMouseLeave();
         if (window.innerWidth <= 992) {
@@ -49,7 +45,7 @@ export default function Header() {
                 <div className="gnb" style={{display : showGnbMenu ? "flex" : ""}}>
                     <ul className="flex">
                         <li className="off"><Link href="/">HOME</Link></li>
-                        {gnbMenu.map(({name, href}) => (
+                        {headerGnb.map(({name, href}) => (
                             <li key={href}>
                                 <Link href={href} onMouseEnter={handlerMouseEnter}
                                       onClick={handlerLinkClick}>{name}</Link>
@@ -57,20 +53,13 @@ export default function Header() {
                         ))}
                         <li className="off">
                             <div className="selectLang mobileSelectLang">
-                                <select name="selectLang" onChange={handlerLangChange}
-                                        value={router.query.lang || "kr"}>
-                                    <option value="kr">KR</option>
-                                    <option value="en">EN</option>
-                                </select>
+                                <LanguageSelector onChangeCloseMenu={() => setShowGnbMenu(false)} />
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div className="selectLang alignR">
-                    <select name="selectLang" onChange={handlerLangChange} value={router.query.lang || "kr"}>
-                        <option value="kr">KR</option>
-                        <option value="en">EN</option>
-                    </select>
+                    <LanguageSelector onChangeCloseMenu={() => setShowGnbMenu(false)} />
                 </div>
                 <button className={`mobileBtn ${showGnbMenu ? "closeBtn" : ""}`} onClick={toggleMobileMenu}>
                     <span></span>
