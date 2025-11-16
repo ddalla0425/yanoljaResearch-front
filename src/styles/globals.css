@@ -26,21 +26,21 @@
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 300;
-    src: url("/public/fonts/Pretendard-Thin.otf") format('opentype');
+    src: url("../../public/fonts/Pretendard-Thin.otf") format('opentype');
 }
 /* Pretendard - Medium */
 @font-face {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    src: url("/public/fonts/Pretendard-Medium.otf") format('opentype');
+    src: url("../../public/fonts/Pretendard-Medium.otf") format('opentype');
 }
 /* Pretendard - SemiBold */
 @font-face {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 600;
-    src: url("/public/fonts/Pretendard-SemiBold.otf") format('opentype');
+    src: url("../../public/fonts/Pretendard-SemiBold.otf") format('opentype');
 }
 
 /*-------------------------------
@@ -56,7 +56,8 @@
     font-family: 'Pretendard', sans-serif;
     box-sizing: border-box;
 }
-html, body {
+html,
+body {
     min-width: 320px;
     font-size: 16px;
     font-weight: 500;
@@ -66,7 +67,10 @@ html, body {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
-a, span, strong, em {
+a,
+span,
+strong,
+em {
     display: inline-block;
     color: inherit;
     text-decoration: none;
@@ -84,11 +88,19 @@ select {
     appearance: none;
     cursor: pointer;
 }
-header, main, section, footer {
+header,
+main,
+section,
+footer {
     position: relative;
 }
 /* 1.1.2 Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 600;
 }
 h1 {
@@ -142,6 +154,7 @@ button {
     height: 0;
     overflow: hidden;
 }
+
 /* 1.2.2 Typography */
 .weight300 {
     font-weight: 300;
@@ -166,4 +179,186 @@ button {
 }
 .color_lightGray {
     color: #999999;
+}
+
+/* 반응형 1100이하 1차 적용*/
+/* 헤더가 모바일용과 PC용으로 나눠져 잇음*/
+/*-------------------------------
+  2.0 Component Style
+-------------------------------*/
+/* 2.1 Header */
+/* 2.1.1 nav */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 97px;
+    padding: 0 40px;
+    border-bottom: 1px solid #D9D9D9;
+}
+.logo,
+.selectLang  {
+    flex: 0 0 234px;
+}
+.logo a {
+    display: flex;
+}
+.gnb {
+    display: flex;
+}
+.gnb li:not(.off),
+.subMenu > div:not(.emptyBox) li {
+    display: flex;
+    width: 160px;
+    justify-content: center;
+}
+.selectLang select {
+    font-size: 18px;
+    text-align: right;
+    padding-right: 20px;
+    background: url("../../public/assets/lang_arrow_black.svg") right center no-repeat;
+}
+.gnb select {
+    color: #FFF;
+    font-size: inherit;
+    font-weight: 500;
+    background: url("../../public/assets/lang_arrow.svg") right center no-repeat;
+}
+.mobileBtn {
+    display: none;
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    flex-direction: column;
+    padding: 4px 0;
+    justify-content: space-between;
+}
+.mobileBtn span:not(.sr-only) {
+    width: 100%;
+    height: 1px;
+    background: #282625;
+}
+.closeBtn {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    top: 37px;
+    right: 20px;
+    z-index: 2;
+}
+.closeBtn span:not(.sr-only) {
+    height: 2px;
+    transform: rotate(45deg);
+    background: #FFF;
+}
+.closeBtn span:nth-child(1) {
+    transform: rotate(45deg);
+    margin-top: 7.5px;
+}
+.closeBtn span:nth-child(2) {
+    transform: rotate(-45deg);
+    margin-bottom: 7.5px;
+}
+
+/* 2.1.2 Sub Menu */
+.subMenu {
+    position: fixed;
+    top: 97px;
+    display: none;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #D9D9D9;
+    background: #FFF;
+    z-index: 1;
+}
+.subMenu li {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.subMenu .emptyBox {
+    flex: 0 0 234px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    /* 2.1 Header */
+    .logo,
+    .subMenu .emptyBox,
+    .selectLang {
+        flex: 0 0 180px;
+    }
+}
+@media (max-width: 1079px) {
+    /* 2.1 Header */
+    .selectLang,
+    .subMenu .emptyBox:last-child {
+        flex: 0 0 120px;
+    }
+}
+@media (max-width: 1019px) {
+    /* 2.1 Header */
+    .selectLang,
+    .subMenu .emptyBox:last-child {
+        flex: 0 0 93px;
+    }
+}
+@media (max-width: 992px) {
+    /* 2.1 Header */
+    nav {
+        padding: 0 20px;
+    }
+    .gnb,
+    .selectLang:not(.mobileSelectLang) {
+        display: none;
+    }
+    .mobileBtn {
+        display: flex;
+    }
+    .gnb {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        justify-content: end;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 2;
+    }
+    .gnb ul {
+        width: 80%;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2rem;
+        color: #FFF;
+        padding: 0 40px;
+        background: #141415;
+    }
+    .gnb li {
+        text-transform: uppercase;
+        justify-content: flex-start!important;
+        padding: 20px 0;
+    }
+    .gnb li.off {
+        display: flex;
+    }
+    .gnb li:nth-child(3),
+    .closeBtn span:nth-last-child(2) {
+        display: none;
+    }
+
+
+}
+@media (max-width: 768px) {
+    /* 1.1 Tag Style */
+    html, body {
+        font-size: 14px;
+    }
+    /* 2.1 Header */
+    nav {
+        height: 60px;
+    }
 }
