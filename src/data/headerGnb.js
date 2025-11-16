@@ -1,5 +1,5 @@
-// Header 메뉴
-export const gnbMenu = [
+//Header 들어갈 데이터 배열
+export const headerGnb = [
     {name: "Research", href: "/Research"},
     {name: "Datalab", href: "/Datalab"},
     {name: "Indexes", href: "/Indexes"},
