@@ -1,15 +1,17 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import {footerSite, footerContent} from "@/data/footerSite";
-import {useLanguage} from "@/hooks/useLanguage";
+import {useLanguage} from "@/providers/LanguageProvider";
+
 
 export default function Footer() {
-    const lang = useLanguage();
+    const {lang} = useLanguage();
 
     return (
-        <footer>
+        <footer key={lang}>
             <div className="subscribeBtn">
-                <Link href="/">{footerContent[lang].subscription}</Link>
+                <Link href="/public">{footerContent[lang]?.subscription}</Link>
             </div>
 
             <div>
@@ -17,18 +19,18 @@ export default function Footer() {
                     <Image width={143} height={17} src="./assets/logo_white.svg" alt="yanolja research footer logo"/>
                 </div>
                 <div className="footerContent">
-                    <Link href="/">{footerContent[lang].privacy}</Link>
+                    <Link href="/public">{footerContent[lang]?.privacy}</Link>
                     <ul>
-                        {footerContent[lang].companyInfo.map((text, i) => (
+                        {footerContent[lang]?.companyInfo.map((text, i) => (
                             <li key={i}>{text}</li>
                         ))}
                     </ul>
                     <ul>
-                        {footerContent[lang].contactInfo.map((text, i) => (
+                        {footerContent[lang]?.contactInfo.map((text, i) => (
                             <li key={i}>{i === 1 ? <a href="mailto:yanoljaresearch@yanolja.com">{text}</a> : text}</li>
                         ))}
                     </ul>
-                    <p>{footerContent[lang].copyright}</p>
+                    <p>{footerContent[lang]?.copyright}</p>
                 </div>
             </div>
 

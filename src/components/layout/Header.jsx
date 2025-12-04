@@ -1,11 +1,14 @@
+"use client"
+
 import Image from "next/image";
 import Logo from "/public/assets/logo.svg"
 import Link from "next/link";
 import {useState} from "react";
 import {headerGnb, subMenu} from "@/data/headerGnb";
-import {useLanguage} from "@/hooks/useLanguage";
-import {useRouter} from "next/router";
-import LanguageSelector from "@/components/LanguageSelector";
+
+import {useRouter} from "next/navigation";
+import LanguageSelector from "@/components/common/LanguageSelector";
+import {useLanguage} from "@/providers/LanguageProvider";
 
 
 export default function Header() {
@@ -19,7 +22,7 @@ export default function Header() {
     const handlerMouseLeave = () => setShowSubMenu(false);
 
     const router = useRouter();
-    const lang = useLanguage();
+    const {lang} = useLanguage();
 
     const handlerLinkClick = () => {
         handlerMouseLeave();
@@ -32,7 +35,7 @@ export default function Header() {
     };
 
     return (
-        <header onMouseLeave={() => setShowSubMenu(false)}>
+        <header onMouseLeave={() => setShowSubMenu(false)} key={lang}>
             <nav>
                 <h1 className="logo"><Link href="/">
                     <Image
@@ -44,7 +47,7 @@ export default function Header() {
                 </Link></h1>
                 <div className="gnb" style={{display : showGnbMenu ? "flex" : ""}}>
                     <ul className="flex">
-                        <li className="off"><Link href="/">HOME</Link></li>
+                        <li className="off"><Link href="/public">HOME</Link></li>
                         {headerGnb.map(({name, href}) => (
                             <li key={href}>
                                 <Link href={href} onMouseEnter={handlerMouseEnter}
@@ -71,7 +74,7 @@ export default function Header() {
             <div className="subMenu" style={{display: showSubMenu ? 'flex' : 'none'}}>
                 <div className="emptyBox"></div>
                 <div className="flex">
-                    {subMenu[lang].map(({category,items}) => (
+                    {subMenu[lang]?.map(({category,items}) => (
                         <ul key={category}>
                             {items.map((item) => (
                                 <li key={item}><Link href={category} onClick={handlerMouseLeave}>{item}</Link></li>
