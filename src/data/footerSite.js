@@ -14,7 +14,7 @@ export const footerContent = {
         en: {
                 subscription: "subscribe",
                 privacy: "Privacy Policy",
-                companyInfo: ["Yanolja Research, Ltd.", "CEO Seongsik Park", "Lincense No. 308-86-02788"],
+                companyInfo: ["Yanolja Page, Ltd.", "CEO Seongsik Park", "Lincense No. 308-86-02788"],
                 contactInfo: [
                         "Y-Siren (Compliance/Whistleblowing)",
                         "E-mail. yanoljaresearch@yanolja.com",
