@@ -17,18 +17,17 @@ export default function Trends() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const isMobile = useIsMobile();
 
+    const handleSlideChange = () => {
+        const swiper = swiperRef.current.swiper;
+        setCurrentIndex(swiper.realIndex);
+    };
+
     useEffect(() => {
         const swiper = swiperRef.current.swiper;
         swiper.on('transitionEnd', handleSlideChange);
         return () => swiper.off('transitionEnd', handleSlideChange);
     }, []);
 
-    const handleSlideChange = () => {
-        const swiper = swiperRef.current.swiper;
-        setCurrentIndex(swiper.realIndex);
-    };
-
-    // ★ 모바일이면 여기서 바로 다른 UI 리턴
     if (isMobile) {
         return (
             <div className="trends">
