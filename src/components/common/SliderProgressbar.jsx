@@ -29,9 +29,11 @@ export default function SliderProgressbar({ items, spaceBetween = 20 }) {
                     <SwiperSlide key={i}>
                         <Link href={href}>
                             <Image src={src} alt={alt} width={270} height={180} />
-                            <strong className="color_orange">{category}</strong>
-                            <p>{tit}</p>
-                            <small className="color_lightGray">{date}</small>
+                            <div className="textArea">
+                                <strong className="color_orange">{category}</strong>
+                                <p>{tit}</p>
+                                <small className="color_lightGray">{date}</small>
+                            </div>
                         </Link>
                     </SwiperSlide>
                 ))}
