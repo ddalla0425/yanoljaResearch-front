@@ -523,6 +523,11 @@ section:has(.sns) {
 .insights .swiper-slide {
     overflow: visible!important;
 }
+.insights .swiper-slide-active,
+.insights .swiper-slide-next,
+.insights .swiper-slide-prev {
+    transition: all .3s ease-in-out;
+}
 .insights .swiper-slide img {
     object-fit: cover;
     object-position: center 80%;
