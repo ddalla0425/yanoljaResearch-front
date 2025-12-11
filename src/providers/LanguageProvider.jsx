@@ -19,6 +19,10 @@ export function LanguageProvider({ children }) {
         }
     }, [params]);
 
+    useEffect(() => {
+        document.documentElement.lang = lang;
+    }, [lang]);
+
     const changeLang = (newLang) => {
         setLang(newLang);
         router.push(`/?lang=${newLang}`, { scroll: false });
