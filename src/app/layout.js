@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import LayoutWrapper from "@/layouts/LayoutWrapper";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import {LanguageProvider} from "@/providers/LanguageProvider";
 import {QueryProvider} from "@/providers/QueryProvider";
 
@@ -15,7 +15,6 @@ export default function RootLayout({ children }) {
                 <LanguageProvider>
                     <QueryProvider>
                         <LayoutWrapper>{children}</LayoutWrapper>
-                        {/*{children}*/}
                     </QueryProvider>
                 </LanguageProvider>
             </body>
