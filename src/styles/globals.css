@@ -943,6 +943,9 @@ section:has(.sns) {
         flex-wrap: wrap;
     }
     .gnb .mobile-sub {
+        display: none;
+    }
+    .gnb .mobile-sub.open {
         display: flex;
         padding: 0;
         margin-top: 16px;
