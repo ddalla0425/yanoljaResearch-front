@@ -368,6 +368,9 @@ nav {
     justify-content: center;
     padding: 10px 0;
 }
+.subMenu li:hover {
+    font-weight: 600;
+}
 .subMenu .emptyBox {
     flex: 0 0 234px;
 }
@@ -952,9 +955,11 @@ section:has(.sns) {
         gap: 6px;
     }
     .gnb .mobile-sub li {
+        text-transform: none;
         padding: 0;
         font-size: 1.4rem;
         line-height: 1.8rem;
+        white-space: nowrap;
         font-weight: 600;
     }
 
