@@ -7,7 +7,7 @@ import useIsMobile from "@/utils/hooks/useIsMobile";
 
 export default function Report() {
     const { lang = "kr" } = useLanguage();
-    const inMobile = useIsMobile();
+    const isMobile = useIsMobile();
     const titles = {
         kr: "연구보고서",
         en: "report"
@@ -19,7 +19,7 @@ export default function Report() {
     return (
         <div className="report">
             <h2><Link href="/public">{titles[lang]}</Link></h2>
-            <SliderProgressbar items={items} spaceBetween={useIsMobile ? 16 : 40}/>
+            <SliderProgressbar items={items} spaceBetween={ isMobile ? 16 : 40}/>
         </div>
     );
 }
