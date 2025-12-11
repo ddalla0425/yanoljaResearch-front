@@ -76,8 +76,8 @@ export default function Header() {
                 <div className="flex">
                     {subMenu[lang]?.map(({category,items}) => (
                         <ul key={category}>
-                            {items.map((item) => (
-                                <li key={item}><Link href={category} onClick={handlerMouseLeave}>{item}</Link></li>
+                            {items.map(({ name, href}) => (
+                                <li key={href}><Link href={href} onClick={handlerMouseLeave}>{name}</Link></li>
                             ))}
                         </ul>
                     ))}
