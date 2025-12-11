@@ -6,36 +6,44 @@ import {useLanguage} from "@/providers/LanguageProvider";
 
 
 export default function Footer() {
-    const {lang} = useLanguage();
+    const { lang } = useLanguage();
+    const content = footerContent[lang];
 
+    // 패밀리 사이트 링크 연결
+    const handleFamilySite = (e) => {
+        const url = e.target.value;
+        if (url !== "none") window.open(url, "_blank");
+    };
     return (
-        <footer key={lang}>
+        <footer>
             <div className="subscribeBtn">
-                <Link href="/public">{footerContent[lang]?.subscription}</Link>
+                <Link href="/">{content?.subscription}</Link>
             </div>
 
             <div>
                 <div className="footerLogo">
-                    <Image width={143} height={17} src="./assets/logo_white.svg" alt="yanolja research footer logo"/>
+                    <Image width={143} height={17} src="/assets/logo_white.svg" alt="yanolja research footer logo"/>
                 </div>
                 <div className="footerContent">
-                    <Link href="/public">{footerContent[lang]?.privacy}</Link>
+                    <Link href="/">{content?.privacy}</Link>
                     <ul>
-                        {footerContent[lang]?.companyInfo.map((text, i) => (
+                        {content?.companyInfo.map((text, i) => (
                             <li key={i}>{text}</li>
                         ))}
                     </ul>
                     <ul>
-                        {footerContent[lang]?.contactInfo.map((text, i) => (
-                            <li key={i}>{i === 1 ? <a href="mailto:yanoljaresearch@yanolja.com">{text}</a> : text}</li>
+                        {content?.contactInfo.map(({text, href}, i) => (
+                            <li key={i}>
+                                {href ? <Link href={href} target="_blank">{text}</Link> : text}
+                            </li>
                         ))}
                     </ul>
-                    <p>{footerContent[lang]?.copyright}</p>
+                    <p>{content?.copyright}</p>
                 </div>
             </div>
 
             <div className="selectFamilySite">
-                <select name="selectFamilySite">
+                <select name="selectFamilySite" onChange={handleFamilySite}>
                     <option value="none">Family site</option>
                     {footerSite.map(({href, siteName}) => (
                         <option key={href} value={href}>{siteName}</option>

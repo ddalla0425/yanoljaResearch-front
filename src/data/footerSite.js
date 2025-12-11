@@ -5,9 +5,9 @@ export const footerContent = {
                 privacy: "개인정보 처리방침",
                 companyInfo: ["(주)야놀자리서치", "대표이사. 박성식", "사업자등록번호. 308-86-02788"],
                 contactInfo: [
-                        "Y-Siren (Compliance/Whistleblowing)",
-                        "E-mail. yanoljaresearch@yanolja.com",
-                        "서울특별시 강남구 테헤란로 108길 42 MDM타워 4층"
+                        {text: "Y-Siren (Compliance/Whistleblowing)", href: "https://www.kbei.org/whistle/center/?code=yanolja" },
+                        {text: "E-mail. yanoljaresearch@yanolja.com", href: "mailto:yanoljaresearch@yanolja.com"},
+                        {text: "서울특별시 강남구 테헤란로 108길 42 MDM타워 4층"}
                 ],
                 copyright: "© YANOLJA RESEARCH. All rights reserved."
         },
@@ -23,6 +23,7 @@ export const footerContent = {
                 copyright: "© YANOLJA RESEARCH. All rights reserved."
         }
 };
+//푸터 패밀리 사이트 데이터 배열
 export const footerSite = [
         {href: "http://khta.khu.ac.kr/", siteName: "경희대 H&T 애널리틱스 센터"},
         {href: "https://www.purdue.edu/hhs/htm/research/CHRIBA/index.html", siteName: "Purdue CHRIBA"},
