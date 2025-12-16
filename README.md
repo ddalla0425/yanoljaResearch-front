@@ -42,7 +42,7 @@ Swiper 기반으로 원본과 동일한 UX를 재현하고, 필요한 부분은 
 
 ---
 
-# 🔍 **주요 기능 Features**
+# 🔍 **주요 기능**
 
 ## ⭐ 1) Insights 스택형 카드 슬라이더 (Stacked Card Slider)
 야놀자 리서치 메인의 핵심 인터랙션을 그대로 재현한 UI입니다.
@@ -57,7 +57,7 @@ Swiper 기반으로 원본과 동일한 UX를 재현하고, 필요한 부분은 
 - **반응형에서도 스택 구조 유지** (원본 대비 개선된 품질)
 
 
-## ⭐ 2) 다국어 지원 (Multi-Language Support)
+## ⭐ 2) 다국어 지원 
 
 이 프로젝트는 단순한 UI 복사 클론이 아니라,  
 실제 서비스처럼 콘텐츠를 **언어별로 관리**하고,  
@@ -91,7 +91,7 @@ const insightItems = filterByCategory(contents[lang], "insight", lang);
 
 ---
 
-# 🚀 원본 대비 개선 사항 (Upgrade Points)
+# 🚀 원본 대비 개선 사항 
 
 ### ✔ 1) 반응형에서도 스택 구조 유지
 원본 야놀자는 화면이 작아지면 스택 구조를 없애며 shadow·transform이 잘림</br>
