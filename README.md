@@ -136,7 +136,7 @@ const insightItems = filterByCategory(contents[lang], "insight", lang);
   </thead>
   <tbody>
     <td><img src="https://github.com/ddalla0425/yanoljaResearch-front/blob/main/public/assets/readme/%EC%9B%90%EB%B3%B8%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%B6%80%EC%9E%90%EC%97%B0%EC%8A%A4%EB%9F%AC%EC%9A%B4UI.png"/></td>
-    <td><img style="vertical-align: top;" src="https://github.com/ddalla0425/yanoljaResearch-front/blob/main/public/assets/readme/%ED%81%B4%EB%A1%A0%EB%AA%A8%EC%9E%90%EC%9D%BC%EC%9E%90%EC%97%B0%EC%8A%A4%EB%9F%AC%EC%9A%B4UI.png"/></td>
+    <td style="vertical-align: top;"><img src="https://github.com/ddalla0425/yanoljaResearch-front/blob/main/public/assets/readme/%ED%81%B4%EB%A1%A0%EB%AA%A8%EC%9E%90%EC%9D%BC%EC%9E%90%EC%97%B0%EC%8A%A4%EB%9F%AC%EC%9A%B4UI.png"/></td>
   </tbody>
 </table>
 
