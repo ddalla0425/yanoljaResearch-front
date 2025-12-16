@@ -51,7 +51,7 @@ export default function Insights() {
                     rotate: false,
                     shadow: true
                 }}
-                autoplay={{ delay: 1000 }}
+                autoplay={{ delay: 3000 }}
                 loop={true}
                 onSlideChange={handleSlideChange}
                 ref={swiperRef}
